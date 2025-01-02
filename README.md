@@ -1,6 +1,6 @@
 Library Management System API
 
-This project is a Flask-based RESTful API for managing a library's books and members. The API allows users to perform CRUD (Create, Read, Update, Delete) operations for both books and members.
+This is a Flask-based RESTful API for managing the books and members of a library. The API allows users to perform CRUD (Create, Read, Update, Delete) operations for both books and members.
 
 Features
 
@@ -32,74 +32,70 @@ How to Run the Project
 
 Prerequisites
 
-Python 3.7 or later installed on your machine
+Python 3.7 or greater installed on your computer
 
-Steps
-
+Step
 
 Install Flask:
 
 pip install flask
 
-Run the application:
+ Run the application
 
 python app.py
 
-Access the API at:
+Access API at:
 
-Base URL: http://127.0.0.1:5000
+ Base URL: http://127.0.0.1:5000
 
-API Endpoints
+API End-points
 
 Books
 
-GET /books: Retrieve all books
+GET /books: Get All Books
 
-POST /books: Add a new book (requires id, title, and author in the request body)
+POST /books: Add a New Book (the request body requires id, title, and author).
 
-GET /books/<book_id>: Retrieve details of a specific book
+GET /books/<book_id>: Get particular book details.
 
-PUT /books/<book_id>: Update details of a specific book
+PUT /books/<book_id>: Update information of a book.
 
-DELETE /books/<book_id>: Delete a specific book
+DELETE /books/<book_id>: Deletes a particular book.
 
 Members
 
-GET /members: Retrieve all members
+GET /members: Get All members
 
-POST /members: Add a new member (requires id and name in the request body)
+POST /members: Adds a new member. This should include id and name in the request body
 
-GET /members/<member_id>: Retrieve details of a specific member
+GET /members/<member_id>: Returns details of a given member
 
-PUT /members/<member_id>: Update details of a specific member
+PUT /members/<member_id>: Updates details of a given member
 
-DELETE /members/<member_id>: Delete a specific member
+DELETE /members/<member_id>: Deletes a given member
 
-Design Choices
+Design Decisions
 
-Framework: Flask was chosen for its simplicity and lightweight nature, making it ideal for small projects and APIs.
+Framework: Flask is selected because it is lightweight and easy to use. Therefore, this would be good for small projects and APIs.
 
-In-memory Storage: Used for simplicity and quick prototyping. Note that the data will reset whenever the server restarts.
+In-memory Storage: For simplicity and fast prototyping. Data will always reset on the server restart, though.
 
-Assumptions
-
-Each book and member has a unique id.
+Every book and member have an id uniquely assigned to it.
 
 The API is accessed locally for testing and development purposes.
 
 Limitations
 
-No database is used; data is stored in memory, making it unsuitable for production use.
+No database is used; the data is held in memory and hence not appropriate for production usage.
 
-No authentication or user access control is implemented.
+No authentication or user access control is in place.
 
 Future Improvements
 
-Integrate a database for persistent data storage.
+Implement a database for persistent storage of data.
 
 Add user authentication and role-based access control.
 
-Implement pagination for large datasets.
+Implement pagination when the dataset size is large.
 
-Add more advanced error handling.
-
+Add more complex error handling.
