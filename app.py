@@ -7,10 +7,10 @@ books = []
 members = []
 
 # Helper functions
-def find_book(book_id):
+def locate_book(book_id):
     return next((book for book in books if book['id'] == book_id), None)
 
-def find_member(member_id):
+def locate_member(member_id):
     return next((member for member in members if member['id'] == member_id), None)
 
 # Routes for Books
@@ -24,7 +24,7 @@ def add_book():
     if not data or 'id' not in data or 'title' not in data or 'author' not in data:
         return jsonify({'error': 'Invalid book data'}), 400
 
-    if find_book(data['id']):
+    if locate_book(data['id']):
         return jsonify({'error': 'Book with this ID already exists'}), 400
 
     books.append(data)
@@ -32,7 +32,7 @@ def add_book():
 
 @app.route('/books/<int:book_id>', methods=['GET'])
 def get_book(book_id):
-    book = find_book(book_id)
+    book = locate_book(book_id)
     if not book:
         return jsonify({'error': 'Book not found'}), 404
 
@@ -40,7 +40,7 @@ def get_book(book_id):
 
 @app.route('/books/<int:book_id>', methods=['PUT'])
 def update_book(book_id):
-    book = find_book(book_id)
+    book = locate_book(book_id)
     if not book:
         return jsonify({'error': 'Book not found'}), 404
 
@@ -53,7 +53,7 @@ def update_book(book_id):
 
 @app.route('/books/<int:book_id>', methods=['DELETE'])
 def delete_book(book_id):
-    book = find_book(book_id)
+    book = locate_book(book_id)
     if not book:
         return jsonify({'error': 'Book not found'}), 404
 
@@ -71,7 +71,7 @@ def add_member():
     if not data or 'id' not in data or 'name' not in data:
         return jsonify({'error': 'Invalid member data'}), 400
 
-    if find_member(data['id']):
+    if locate_member(data['id']):
         return jsonify({'error': 'Member with this ID already exists'}), 400
 
     members.append(data)
@@ -79,7 +79,7 @@ def add_member():
 
 @app.route('/members/<int:member_id>', methods=['GET'])
 def get_member(member_id):
-    member = find_member(member_id)
+    member = locate_member(member_id)
     if not member:
         return jsonify({'error': 'Member not found'}), 404
 
@@ -87,7 +87,7 @@ def get_member(member_id):
 
 @app.route('/members/<int:member_id>', methods=['PUT'])
 def update_member(member_id):
-    member = find_member(member_id)
+    member = locate_member(member_id)
     if not member:
         return jsonify({'error': 'Member not found'}), 404
 
@@ -100,7 +100,7 @@ def update_member(member_id):
 
 @app.route('/members/<int:member_id>', methods=['DELETE'])
 def delete_member(member_id):
-    member = find_member(member_id)
+    member = locate_member(member_id)
     if not member:
         return jsonify({'error': 'Member not found'}), 404
 
