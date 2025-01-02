@@ -36,10 +36,6 @@ Python 3.7 or later installed on your machine
 
 Steps
 
-Clone the repository:
-
-git clone <repository-link>
-cd <repository-folder>
 
 Install Flask:
 
